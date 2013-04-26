@@ -1,0 +1,4 @@
+print or true true
+print pa
+print not and true >= 2 + ma 3
+if > 2 pa print 3 (scan pa print pa)
