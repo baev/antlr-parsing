@@ -4,6 +4,8 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
 
@@ -22,15 +24,10 @@ public class Main {
         PrefixExpressionsLexer lexer = new PrefixExpressionsLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         PrefixExpressionsParser parser = new PrefixExpressionsParser(tokens);
+//
+        ParseTree tree = parser.parse();
 
-        parser.setBuildParseTree(true);
-        RuleContext tree = parser.parse();
-
-        tree.inspect(parser); // show in gui
-        //tree.save(parser, "/tmp/R.ps"); // Generate postscript
-//        System.out.println(tree.toStringTree(parser));
-
-        lexer.reset();
-
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new PrefixExpressionsWalker(), tree);
     }
 }
