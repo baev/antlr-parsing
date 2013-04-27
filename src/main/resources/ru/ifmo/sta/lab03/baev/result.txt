@@ -1,0 +1,8 @@
+begin
+	writeln(pa);
+	writeln(2 + ma3);
+	2pa	writeln(3);
+	pa;
+	writeln(pa);
+;
+end.

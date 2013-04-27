@@ -19,6 +19,9 @@ public class PrefixExpressionsBaseListener implements PrefixExpressionsListener 
 	@Override public void enterMath_expr(PrefixExpressionsParser.Math_exprContext ctx) { }
 	@Override public void exitMath_expr(PrefixExpressionsParser.Math_exprContext ctx) { }
 
+	@Override public void enterName(PrefixExpressionsParser.NameContext ctx) { }
+	@Override public void exitName(PrefixExpressionsParser.NameContext ctx) { }
+
 	@Override public void enterLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx) { }
 	@Override public void exitLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx) { }
 
@@ -45,6 +48,9 @@ public class PrefixExpressionsBaseListener implements PrefixExpressionsListener 
 
 	@Override public void enterParse(PrefixExpressionsParser.ParseContext ctx) { }
 	@Override public void exitParse(PrefixExpressionsParser.ParseContext ctx) { }
+
+	@Override public void enterEnd(PrefixExpressionsParser.EndContext ctx) { }
+	@Override public void exitEnd(PrefixExpressionsParser.EndContext ctx) { }
 
 	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	@Override public void exitEveryRule(ParserRuleContext ctx) { }

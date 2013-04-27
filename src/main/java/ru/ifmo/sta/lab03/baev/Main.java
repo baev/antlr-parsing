@@ -27,6 +27,9 @@ public class Main {
 //
         ParseTree tree = parser.parse();
 
+//        RuleContext rc = (RuleContext) tree;
+//        rc.inspect(parser);
+
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(new PrefixExpressionsWalker(), tree);
     }

@@ -16,6 +16,9 @@ public interface PrefixExpressionsListener extends ParseTreeListener {
 	void enterMath_expr(PrefixExpressionsParser.Math_exprContext ctx);
 	void exitMath_expr(PrefixExpressionsParser.Math_exprContext ctx);
 
+	void enterName(PrefixExpressionsParser.NameContext ctx);
+	void exitName(PrefixExpressionsParser.NameContext ctx);
+
 	void enterLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx);
 	void exitLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx);
 
@@ -42,4 +45,7 @@ public interface PrefixExpressionsListener extends ParseTreeListener {
 
 	void enterParse(PrefixExpressionsParser.ParseContext ctx);
 	void exitParse(PrefixExpressionsParser.ParseContext ctx);
+
+	void enterEnd(PrefixExpressionsParser.EndContext ctx);
+	void exitEnd(PrefixExpressionsParser.EndContext ctx);
 }
