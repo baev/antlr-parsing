@@ -1,8 +1,12 @@
 begin
-	writeln(pa);
-	writeln(2 + ma3);
-	2pa	writeln(3);
-	pa;
-	writeln(pa);
-;
+	writeLn(2 + 2);
+	if (((pa and (not ma)) or (1 > 2)) and (ma <> TRUE)) then
+		writeLn(ma);
+	else
+		begin
+			writeLn(pa);
+			writeLn(1 + 2);
+		end;
+	writeLn(21 + 12);
+	ma := 3;
 end.

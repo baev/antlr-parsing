@@ -7,38 +7,8 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.antlr.v4.runtime.tree.ErrorNode;
 
 public class PrefixExpressionsBaseListener implements PrefixExpressionsListener {
-	@Override public void enterAssignment(PrefixExpressionsParser.AssignmentContext ctx) { }
-	@Override public void exitAssignment(PrefixExpressionsParser.AssignmentContext ctx) { }
-
-	@Override public void enterLogic_expr(PrefixExpressionsParser.Logic_exprContext ctx) { }
-	@Override public void exitLogic_expr(PrefixExpressionsParser.Logic_exprContext ctx) { }
-
-	@Override public void enterMath_operator(PrefixExpressionsParser.Math_operatorContext ctx) { }
-	@Override public void exitMath_operator(PrefixExpressionsParser.Math_operatorContext ctx) { }
-
-	@Override public void enterMath_expr(PrefixExpressionsParser.Math_exprContext ctx) { }
-	@Override public void exitMath_expr(PrefixExpressionsParser.Math_exprContext ctx) { }
-
-	@Override public void enterName(PrefixExpressionsParser.NameContext ctx) { }
-	@Override public void exitName(PrefixExpressionsParser.NameContext ctx) { }
-
-	@Override public void enterLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx) { }
-	@Override public void exitLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx) { }
-
-	@Override public void enterWrite(PrefixExpressionsParser.WriteContext ctx) { }
-	@Override public void exitWrite(PrefixExpressionsParser.WriteContext ctx) { }
-
-	@Override public void enterCommand(PrefixExpressionsParser.CommandContext ctx) { }
-	@Override public void exitCommand(PrefixExpressionsParser.CommandContext ctx) { }
-
-	@Override public void enterCompare_operator(PrefixExpressionsParser.Compare_operatorContext ctx) { }
-	@Override public void exitCompare_operator(PrefixExpressionsParser.Compare_operatorContext ctx) { }
-
-	@Override public void enterBranch(PrefixExpressionsParser.BranchContext ctx) { }
-	@Override public void exitBranch(PrefixExpressionsParser.BranchContext ctx) { }
-
-	@Override public void enterRead(PrefixExpressionsParser.ReadContext ctx) { }
-	@Override public void exitRead(PrefixExpressionsParser.ReadContext ctx) { }
+	@Override public void enterMathExpr(PrefixExpressionsParser.MathExprContext ctx) { }
+	@Override public void exitMathExpr(PrefixExpressionsParser.MathExprContext ctx) { }
 
 	@Override public void enterExpr(PrefixExpressionsParser.ExprContext ctx) { }
 	@Override public void exitExpr(PrefixExpressionsParser.ExprContext ctx) { }
@@ -46,8 +16,38 @@ public class PrefixExpressionsBaseListener implements PrefixExpressionsListener 
 	@Override public void enterOperand(PrefixExpressionsParser.OperandContext ctx) { }
 	@Override public void exitOperand(PrefixExpressionsParser.OperandContext ctx) { }
 
+	@Override public void enterLogicOperator(PrefixExpressionsParser.LogicOperatorContext ctx) { }
+	@Override public void exitLogicOperator(PrefixExpressionsParser.LogicOperatorContext ctx) { }
+
+	@Override public void enterAssignment(PrefixExpressionsParser.AssignmentContext ctx) { }
+	@Override public void exitAssignment(PrefixExpressionsParser.AssignmentContext ctx) { }
+
+	@Override public void enterLogicExpr(PrefixExpressionsParser.LogicExprContext ctx) { }
+	@Override public void exitLogicExpr(PrefixExpressionsParser.LogicExprContext ctx) { }
+
+	@Override public void enterName(PrefixExpressionsParser.NameContext ctx) { }
+	@Override public void exitName(PrefixExpressionsParser.NameContext ctx) { }
+
+	@Override public void enterCommand(PrefixExpressionsParser.CommandContext ctx) { }
+	@Override public void exitCommand(PrefixExpressionsParser.CommandContext ctx) { }
+
+	@Override public void enterWrite(PrefixExpressionsParser.WriteContext ctx) { }
+	@Override public void exitWrite(PrefixExpressionsParser.WriteContext ctx) { }
+
+	@Override public void enterRead(PrefixExpressionsParser.ReadContext ctx) { }
+	@Override public void exitRead(PrefixExpressionsParser.ReadContext ctx) { }
+
+	@Override public void enterBranch(PrefixExpressionsParser.BranchContext ctx) { }
+	@Override public void exitBranch(PrefixExpressionsParser.BranchContext ctx) { }
+
+	@Override public void enterCompareOperator(PrefixExpressionsParser.CompareOperatorContext ctx) { }
+	@Override public void exitCompareOperator(PrefixExpressionsParser.CompareOperatorContext ctx) { }
+
 	@Override public void enterParse(PrefixExpressionsParser.ParseContext ctx) { }
 	@Override public void exitParse(PrefixExpressionsParser.ParseContext ctx) { }
+
+	@Override public void enterMathOperator(PrefixExpressionsParser.MathOperatorContext ctx) { }
+	@Override public void exitMathOperator(PrefixExpressionsParser.MathOperatorContext ctx) { }
 
 	@Override public void enterEnd(PrefixExpressionsParser.EndContext ctx) { }
 	@Override public void exitEnd(PrefixExpressionsParser.EndContext ctx) { }

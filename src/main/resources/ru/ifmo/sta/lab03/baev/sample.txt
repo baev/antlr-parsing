@@ -1,3 +1,1 @@
-print pa
-print not and true >= 2 + ma 3
-if > 2 pa print 3 (scan pa print pa)
+print + 2 2 if and or and pa not ma > 1 2 <> ma TRUE print ma (print pa print + 1 2) print + 21 12 := ma 3

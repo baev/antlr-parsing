@@ -15,23 +15,24 @@ public class PrefixExpressionsParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__19=1, T__18=2, T__17=3, T__16=4, T__15=5, T__14=6, T__13=7, T__12=8, 
-		T__11=9, T__10=10, T__9=11, T__8=12, T__7=13, T__6=14, T__5=15, T__4=16, 
-		T__3=17, T__2=18, T__1=19, T__0=20, ID=21, INT=22, CHAR=23, DIGIT=24, 
-		WS=25;
+		T__18=1, T__17=2, T__16=3, T__15=4, T__14=5, T__13=6, T__12=7, T__11=8, 
+		T__10=9, T__9=10, T__8=11, T__7=12, T__6=13, T__5=14, T__4=15, T__3=16, 
+		T__2=17, T__1=18, T__0=19, NOT=20, TRUE=21, FALSE=22, ID=23, INT=24, CHAR=25, 
+		DIGIT=26, WS=27;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'xor'", "')'", "'+'", "'*'", "'-'", "'or'", "'not'", "'('", 
-		"'print'", "'if'", "'<'", "'false'", "'='", "'<='", "'>'", "'scan'", "'and'", 
-		"'/'", "'>='", "'true'", "ID", "INT", "CHAR", "DIGIT", "WS"
+		"<INVALID>", "'xor'", "')'", "'+'", "'*'", "'-'", "'or'", "'('", "'print'", 
+		"'if'", "'<>'", "'<'", "'='", "'<='", "'>'", "'scan'", "'and'", "':='", 
+		"'/'", "'>='", "'not'", "'true'", "'false'", "ID", "INT", "CHAR", "DIGIT", 
+		"WS"
 	};
 	public static final int
 		RULE_parse = 0, RULE_command = 1, RULE_write = 2, RULE_read = 3, RULE_branch = 4, 
-		RULE_operand = 5, RULE_math_expr = 6, RULE_math_operator = 7, RULE_logic_expr = 8, 
-		RULE_compare_operator = 9, RULE_logic_operator = 10, RULE_assignment = 11, 
+		RULE_operand = 5, RULE_mathExpr = 6, RULE_mathOperator = 7, RULE_logicExpr = 8, 
+		RULE_compareOperator = 9, RULE_logicOperator = 10, RULE_assignment = 11, 
 		RULE_expr = 12, RULE_name = 13, RULE_end = 14;
 	public static final String[] ruleNames = {
-		"parse", "command", "write", "read", "branch", "operand", "math_expr", 
-		"math_operator", "logic_expr", "compare_operator", "logic_operator", "assignment", 
+		"parse", "command", "write", "read", "branch", "operand", "mathExpr", 
+		"mathOperator", "logicExpr", "compareOperator", "logicOperator", "assignment", 
 		"expr", "name", "end"
 	};
 
@@ -81,10 +82,10 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			setState(34);
 			switch (_input.LA(1)) {
+			case 8:
 			case 9:
-			case 10:
-			case 16:
-			case ID:
+			case 15:
+			case 17:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(30); command();
@@ -145,25 +146,25 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			setState(40);
 			switch (_input.LA(1)) {
-			case 9:
+			case 8:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(36); write();
 				}
 				break;
-			case 16:
+			case 15:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(37); read();
 				}
 				break;
-			case ID:
+			case 17:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(38); assignment();
 				}
 				break;
-			case 10:
+			case 9:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(39); branch();
@@ -185,9 +186,6 @@ public class PrefixExpressionsParser extends Parser {
 	}
 
 	public static class WriteContext extends ParserRuleContext {
-		public NameContext name() {
-			return getRuleContext(NameContext.class,0);
-		}
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -211,21 +209,8 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42); match(9);
-			setState(45);
-			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
-			case 1:
-				{
-				setState(43); expr();
-				}
-				break;
-
-			case 2:
-				{
-				setState(44); name();
-				}
-				break;
-			}
+			setState(42); match(8);
+			setState(43); expr();
 			}
 		}
 		catch (RecognitionException re) {
@@ -263,8 +248,8 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47); match(16);
-			setState(48); name();
+			setState(45); match(15);
+			setState(46); name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -279,8 +264,8 @@ public class PrefixExpressionsParser extends Parser {
 	}
 
 	public static class BranchContext extends ParserRuleContext {
-		public Logic_exprContext logic_expr() {
-			return getRuleContext(Logic_exprContext.class,0);
+		public LogicExprContext logicExpr() {
+			return getRuleContext(LogicExprContext.class,0);
 		}
 		public List<OperandContext> operand() {
 			return getRuleContexts(OperandContext.class);
@@ -308,10 +293,10 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50); match(10);
-			setState(51); logic_expr();
-			setState(52); operand();
-			setState(53); operand();
+			setState(48); match(9);
+			setState(49); logicExpr();
+			setState(50); operand();
+			setState(51); operand();
 			}
 		}
 		catch (RecognitionException re) {
@@ -351,35 +336,35 @@ public class PrefixExpressionsParser extends Parser {
 		enterRule(_localctx, 10, RULE_operand);
 		int _la;
 		try {
-			setState(64);
+			setState(62);
 			switch (_input.LA(1)) {
+			case 8:
 			case 9:
-			case 10:
-			case 16:
-			case ID:
+			case 15:
+			case 17:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(55); command();
+				setState(53); command();
 				}
 				break;
-			case 8:
+			case 7:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(56); match(8);
-				setState(58); 
+				setState(54); match(7);
+				setState(56); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(57); command();
+					setState(55); command();
 					}
 					}
-					setState(60); 
+					setState(58); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 9) | (1L << 10) | (1L << 16) | (1L << ID))) != 0) );
-				setState(62); match(2);
+				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 8) | (1L << 9) | (1L << 15) | (1L << 17))) != 0) );
+				setState(60); match(2);
 				}
 				break;
 			default:
@@ -397,39 +382,37 @@ public class PrefixExpressionsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Math_exprContext extends ParserRuleContext {
-		public Math_operatorContext math_operator() {
-			return getRuleContext(Math_operatorContext.class,0);
+	public static class MathExprContext extends ParserRuleContext {
+		public List<MathExprContext> mathExpr() {
+			return getRuleContexts(MathExprContext.class);
 		}
 		public TerminalNode INT() { return getToken(PrefixExpressionsParser.INT, 0); }
-		public List<Math_exprContext> math_expr() {
-			return getRuleContexts(Math_exprContext.class);
+		public MathExprContext mathExpr(int i) {
+			return getRuleContext(MathExprContext.class,i);
 		}
-		public NameContext name() {
-			return getRuleContext(NameContext.class,0);
+		public TerminalNode ID() { return getToken(PrefixExpressionsParser.ID, 0); }
+		public MathOperatorContext mathOperator() {
+			return getRuleContext(MathOperatorContext.class,0);
 		}
-		public Math_exprContext math_expr(int i) {
-			return getRuleContext(Math_exprContext.class,i);
-		}
-		public Math_exprContext(ParserRuleContext parent, int invokingState) {
+		public MathExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_math_expr; }
+		@Override public int getRuleIndex() { return RULE_mathExpr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterMath_expr(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterMathExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitMath_expr(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitMathExpr(this);
 		}
 	}
 
-	public final Math_exprContext math_expr() throws RecognitionException {
-		Math_exprContext _localctx = new Math_exprContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_math_expr);
+	public final MathExprContext mathExpr() throws RecognitionException {
+		MathExprContext _localctx = new MathExprContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_mathExpr);
 		try {
-			setState(72);
+			setState(70);
 			switch (_input.LA(1)) {
 			case 3:
 			case 4:
@@ -437,21 +420,21 @@ public class PrefixExpressionsParser extends Parser {
 			case 18:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(66); math_operator();
-				setState(67); math_expr();
-				setState(68); math_expr();
+				setState(64); mathOperator();
+				setState(65); mathExpr();
+				setState(66); mathExpr();
 				}
 				break;
 			case INT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(70); match(INT);
+				setState(68); match(INT);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(71); name();
+				setState(69); match(ID);
 				}
 				break;
 			default:
@@ -469,29 +452,29 @@ public class PrefixExpressionsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Math_operatorContext extends ParserRuleContext {
-		public Math_operatorContext(ParserRuleContext parent, int invokingState) {
+	public static class MathOperatorContext extends ParserRuleContext {
+		public MathOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_math_operator; }
+		@Override public int getRuleIndex() { return RULE_mathOperator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterMath_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterMathOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitMath_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitMathOperator(this);
 		}
 	}
 
-	public final Math_operatorContext math_operator() throws RecognitionException {
-		Math_operatorContext _localctx = new Math_operatorContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_math_operator);
+	public final MathOperatorContext mathOperator() throws RecognitionException {
+		MathOperatorContext _localctx = new MathOperatorContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_mathOperator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(72);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 3) | (1L << 4) | (1L << 5) | (1L << 18))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -510,94 +493,95 @@ public class PrefixExpressionsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Logic_exprContext extends ParserRuleContext {
-		public List<Logic_exprContext> logic_expr() {
-			return getRuleContexts(Logic_exprContext.class);
+	public static class LogicExprContext extends ParserRuleContext {
+		public List<MathExprContext> mathExpr() {
+			return getRuleContexts(MathExprContext.class);
 		}
-		public List<Math_exprContext> math_expr() {
-			return getRuleContexts(Math_exprContext.class);
+		public LogicOperatorContext logicOperator() {
+			return getRuleContext(LogicOperatorContext.class,0);
 		}
-		public Logic_exprContext logic_expr(int i) {
-			return getRuleContext(Logic_exprContext.class,i);
+		public MathExprContext mathExpr(int i) {
+			return getRuleContext(MathExprContext.class,i);
 		}
-		public NameContext name() {
-			return getRuleContext(NameContext.class,0);
+		public TerminalNode NOT() { return getToken(PrefixExpressionsParser.NOT, 0); }
+		public List<LogicExprContext> logicExpr() {
+			return getRuleContexts(LogicExprContext.class);
 		}
-		public Logic_operatorContext logic_operator() {
-			return getRuleContext(Logic_operatorContext.class,0);
+		public TerminalNode ID() { return getToken(PrefixExpressionsParser.ID, 0); }
+		public TerminalNode FALSE() { return getToken(PrefixExpressionsParser.FALSE, 0); }
+		public LogicExprContext logicExpr(int i) {
+			return getRuleContext(LogicExprContext.class,i);
 		}
-		public Math_exprContext math_expr(int i) {
-			return getRuleContext(Math_exprContext.class,i);
+		public CompareOperatorContext compareOperator() {
+			return getRuleContext(CompareOperatorContext.class,0);
 		}
-		public Compare_operatorContext compare_operator() {
-			return getRuleContext(Compare_operatorContext.class,0);
-		}
-		public Logic_exprContext(ParserRuleContext parent, int invokingState) {
+		public TerminalNode TRUE() { return getToken(PrefixExpressionsParser.TRUE, 0); }
+		public LogicExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_logic_expr; }
+		@Override public int getRuleIndex() { return RULE_logicExpr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterLogic_expr(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterLogicExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitLogic_expr(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitLogicExpr(this);
 		}
 	}
 
-	public final Logic_exprContext logic_expr() throws RecognitionException {
-		Logic_exprContext _localctx = new Logic_exprContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_logic_expr);
-		int _la;
+	public final LogicExprContext logicExpr() throws RecognitionException {
+		LogicExprContext _localctx = new LogicExprContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_logicExpr);
 		try {
-			setState(88);
+			setState(87);
 			switch (_input.LA(1)) {
 			case 1:
 			case 6:
-			case 17:
+			case 16:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(76); logic_operator();
-				setState(77); logic_expr();
-				setState(78); logic_expr();
+				setState(74); logicOperator();
+				setState(75); logicExpr();
+				setState(76); logicExpr();
 				}
 				break;
-			case 12:
-			case 20:
+			case TRUE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(80);
-				_la = _input.LA(1);
-				if ( !(_la==12 || _la==20) ) {
-				_errHandler.recoverInline(this);
-				}
-				consume();
+				setState(78); match(TRUE);
 				}
 				break;
-			case 11:
-			case 13:
-			case 14:
-			case 15:
-			case 19:
+			case FALSE:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(81); compare_operator();
-				setState(82); math_expr();
-				setState(83); math_expr();
+				setState(79); match(FALSE);
 				}
 				break;
-			case 7:
+			case 10:
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+			case 19:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(85); match(7);
-				setState(86); logic_expr();
+				setState(80); compareOperator();
+				setState(81); mathExpr();
+				setState(82); mathExpr();
+				}
+				break;
+			case NOT:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(84); match(NOT);
+				setState(85); logicExpr();
 				}
 				break;
 			case ID:
-				enterOuterAlt(_localctx, 5);
+				enterOuterAlt(_localctx, 6);
 				{
-				setState(87); name();
+				setState(86); match(ID);
 				}
 				break;
 			default:
@@ -615,31 +599,31 @@ public class PrefixExpressionsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Compare_operatorContext extends ParserRuleContext {
-		public Compare_operatorContext(ParserRuleContext parent, int invokingState) {
+	public static class CompareOperatorContext extends ParserRuleContext {
+		public CompareOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_compare_operator; }
+		@Override public int getRuleIndex() { return RULE_compareOperator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterCompare_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterCompareOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitCompare_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitCompareOperator(this);
 		}
 	}
 
-	public final Compare_operatorContext compare_operator() throws RecognitionException {
-		Compare_operatorContext _localctx = new Compare_operatorContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_compare_operator);
+	public final CompareOperatorContext compareOperator() throws RecognitionException {
+		CompareOperatorContext _localctx = new CompareOperatorContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_compareOperator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(89);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 11) | (1L << 13) | (1L << 14) | (1L << 15) | (1L << 19))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 10) | (1L << 11) | (1L << 12) | (1L << 13) | (1L << 14) | (1L << 19))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -656,31 +640,31 @@ public class PrefixExpressionsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Logic_operatorContext extends ParserRuleContext {
-		public Logic_operatorContext(ParserRuleContext parent, int invokingState) {
+	public static class LogicOperatorContext extends ParserRuleContext {
+		public LogicOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_logic_operator; }
+		@Override public int getRuleIndex() { return RULE_logicOperator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterLogic_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).enterLogicOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitLogic_operator(this);
+			if ( listener instanceof PrefixExpressionsListener ) ((PrefixExpressionsListener)listener).exitLogicOperator(this);
 		}
 	}
 
-	public final Logic_operatorContext logic_operator() throws RecognitionException {
-		Logic_operatorContext _localctx = new Logic_operatorContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_logic_operator);
+	public final LogicOperatorContext logicOperator() throws RecognitionException {
+		LogicOperatorContext _localctx = new LogicOperatorContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_logicOperator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92);
+			setState(91);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 1) | (1L << 6) | (1L << 17))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 1) | (1L << 6) | (1L << 16))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -724,9 +708,9 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(93); match(17);
 			setState(94); name();
-			setState(95); match(13);
-			setState(96); expr();
+			setState(95); expr();
 			}
 		}
 		catch (RecognitionException re) {
@@ -741,11 +725,11 @@ public class PrefixExpressionsParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
-		public Logic_exprContext logic_expr() {
-			return getRuleContext(Logic_exprContext.class,0);
+		public MathExprContext mathExpr() {
+			return getRuleContext(MathExprContext.class,0);
 		}
-		public Math_exprContext math_expr() {
-			return getRuleContext(Math_exprContext.class,0);
+		public LogicExprContext logicExpr() {
+			return getRuleContext(LogicExprContext.class,0);
 		}
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -767,17 +751,17 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+			setState(99);
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				{
-				setState(98); math_expr();
+				setState(97); mathExpr();
 				}
 				break;
 
 			case 2:
 				{
-				setState(99); logic_expr();
+				setState(98); logicExpr();
 				}
 				break;
 			}
@@ -816,7 +800,7 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(102); match(ID);
+			setState(101); match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -852,7 +836,7 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104); match(EOF);
+			setState(103); match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -867,32 +851,31 @@ public class PrefixExpressionsParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\33m\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
+		"\2\3\35l\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
 		"\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2"+
-		"\3\2\3\2\3\2\5\2%\n\2\3\3\3\3\3\3\3\3\5\3+\n\3\3\4\3\4\3\4\5\4\60\n\4"+
-		"\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\6\7=\n\7\r\7\16\7>\3\7\3"+
-		"\7\5\7C\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\bK\n\b\3\t\3\t\3\n\3\n\3\n\3\n\3"+
-		"\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n[\n\n\3\13\3\13\3\f\3\f\3\r\3\r\3\r"+
-		"\3\r\3\16\3\16\5\16g\n\16\3\17\3\17\3\20\3\20\3\20\2\21\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36\2\6\4\5\7\24\24\4\16\16\26\26\5\r\r\17\21\25"+
-		"\25\5\3\3\b\b\23\23k\2$\3\2\2\2\4*\3\2\2\2\6,\3\2\2\2\b\61\3\2\2\2\n\64"+
-		"\3\2\2\2\fB\3\2\2\2\16J\3\2\2\2\20L\3\2\2\2\22Z\3\2\2\2\24\\\3\2\2\2\26"+
-		"^\3\2\2\2\30`\3\2\2\2\32f\3\2\2\2\34h\3\2\2\2\36j\3\2\2\2 !\5\4\3\2!\""+
-		"\5\2\2\2\"%\3\2\2\2#%\5\36\20\2$ \3\2\2\2$#\3\2\2\2%\3\3\2\2\2&+\5\6\4"+
-		"\2\'+\5\b\5\2(+\5\30\r\2)+\5\n\6\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3"+
-		"\2\2\2+\5\3\2\2\2,/\7\13\2\2-\60\5\32\16\2.\60\5\34\17\2/-\3\2\2\2/.\3"+
-		"\2\2\2\60\7\3\2\2\2\61\62\7\22\2\2\62\63\5\34\17\2\63\t\3\2\2\2\64\65"+
-		"\7\f\2\2\65\66\5\22\n\2\66\67\5\f\7\2\678\5\f\7\28\13\3\2\2\29C\5\4\3"+
-		"\2:<\7\n\2\2;=\5\4\3\2<;\3\2\2\2=>\3\2\2\2><\3\2\2\2>?\3\2\2\2?@\3\2\2"+
-		"\2@A\7\4\2\2AC\3\2\2\2B9\3\2\2\2B:\3\2\2\2C\r\3\2\2\2DE\5\20\t\2EF\5\16"+
-		"\b\2FG\5\16\b\2GK\3\2\2\2HK\7\30\2\2IK\5\34\17\2JD\3\2\2\2JH\3\2\2\2J"+
-		"I\3\2\2\2K\17\3\2\2\2LM\t\2\2\2M\21\3\2\2\2NO\5\26\f\2OP\5\22\n\2PQ\5"+
-		"\22\n\2Q[\3\2\2\2R[\t\3\2\2ST\5\24\13\2TU\5\16\b\2UV\5\16\b\2V[\3\2\2"+
-		"\2WX\7\t\2\2X[\5\22\n\2Y[\5\34\17\2ZN\3\2\2\2ZR\3\2\2\2ZS\3\2\2\2ZW\3"+
-		"\2\2\2ZY\3\2\2\2[\23\3\2\2\2\\]\t\4\2\2]\25\3\2\2\2^_\t\5\2\2_\27\3\2"+
-		"\2\2`a\5\34\17\2ab\7\17\2\2bc\5\32\16\2c\31\3\2\2\2dg\5\16\b\2eg\5\22"+
-		"\n\2fd\3\2\2\2fe\3\2\2\2g\33\3\2\2\2hi\7\27\2\2i\35\3\2\2\2jk\7\1\2\2"+
-		"k\37\3\2\2\2\n$*/>BJZf";
+		"\3\2\3\2\3\2\5\2%\n\2\3\3\3\3\3\3\3\3\5\3+\n\3\3\4\3\4\3\4\3\5\3\5\3\5"+
+		"\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\6\7;\n\7\r\7\16\7<\3\7\3\7\5\7A\n\7\3"+
+		"\b\3\b\3\b\3\b\3\b\3\b\5\bI\n\b\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3"+
+		"\n\3\n\3\n\3\n\3\n\3\n\5\nZ\n\n\3\13\3\13\3\f\3\f\3\r\3\r\3\r\3\r\3\16"+
+		"\3\16\5\16f\n\16\3\17\3\17\3\20\3\20\3\20\2\21\2\4\6\b\n\f\16\20\22\24"+
+		"\26\30\32\34\36\2\5\4\5\7\24\24\4\f\20\25\25\5\3\3\b\b\22\22j\2$\3\2\2"+
+		"\2\4*\3\2\2\2\6,\3\2\2\2\b/\3\2\2\2\n\62\3\2\2\2\f@\3\2\2\2\16H\3\2\2"+
+		"\2\20J\3\2\2\2\22Y\3\2\2\2\24[\3\2\2\2\26]\3\2\2\2\30_\3\2\2\2\32e\3\2"+
+		"\2\2\34g\3\2\2\2\36i\3\2\2\2 !\5\4\3\2!\"\5\2\2\2\"%\3\2\2\2#%\5\36\20"+
+		"\2$ \3\2\2\2$#\3\2\2\2%\3\3\2\2\2&+\5\6\4\2\'+\5\b\5\2(+\5\30\r\2)+\5"+
+		"\n\6\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\n\2\2-"+
+		".\5\32\16\2.\7\3\2\2\2/\60\7\21\2\2\60\61\5\34\17\2\61\t\3\2\2\2\62\63"+
+		"\7\13\2\2\63\64\5\22\n\2\64\65\5\f\7\2\65\66\5\f\7\2\66\13\3\2\2\2\67"+
+		"A\5\4\3\28:\7\t\2\29;\5\4\3\2:9\3\2\2\2;<\3\2\2\2<:\3\2\2\2<=\3\2\2\2"+
+		"=>\3\2\2\2>?\7\4\2\2?A\3\2\2\2@\67\3\2\2\2@8\3\2\2\2A\r\3\2\2\2BC\5\20"+
+		"\t\2CD\5\16\b\2DE\5\16\b\2EI\3\2\2\2FI\7\32\2\2GI\7\31\2\2HB\3\2\2\2H"+
+		"F\3\2\2\2HG\3\2\2\2I\17\3\2\2\2JK\t\2\2\2K\21\3\2\2\2LM\5\26\f\2MN\5\22"+
+		"\n\2NO\5\22\n\2OZ\3\2\2\2PZ\7\27\2\2QZ\7\30\2\2RS\5\24\13\2ST\5\16\b\2"+
+		"TU\5\16\b\2UZ\3\2\2\2VW\7\26\2\2WZ\5\22\n\2XZ\7\31\2\2YL\3\2\2\2YP\3\2"+
+		"\2\2YQ\3\2\2\2YR\3\2\2\2YV\3\2\2\2YX\3\2\2\2Z\23\3\2\2\2[\\\t\3\2\2\\"+
+		"\25\3\2\2\2]^\t\4\2\2^\27\3\2\2\2_`\7\23\2\2`a\5\34\17\2ab\5\32\16\2b"+
+		"\31\3\2\2\2cf\5\16\b\2df\5\22\n\2ec\3\2\2\2ed\3\2\2\2f\33\3\2\2\2gh\7"+
+		"\31\2\2h\35\3\2\2\2ij\7\1\2\2j\37\3\2\2\2\t$*<@HYe";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

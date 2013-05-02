@@ -7,46 +7,54 @@ command: write
     | assignment
     | branch;
 
-write: 'print' (expr | name);
+write: 'print' expr;
 
 read: 'scan' name;
 
-branch: 'if' logic_expr operand operand;
+branch: 'if' logicExpr operand operand;
 
 operand: command | '(' command+ ')';
 
-math_expr: math_operator math_expr math_expr
+mathExpr: mathOperator mathExpr mathExpr
     | INT
-    | name;
+    | ID;
 
-math_operator: '+'
+mathOperator: '+'
     | '-'
     | '*'
     | '/';
 
-logic_expr: logic_operator logic_expr logic_expr
-    | ('true' | 'false')
-    | compare_operator math_expr math_expr
-    | 'not' logic_expr
-    | name;
+logicExpr: logicOperator logicExpr logicExpr
+    | TRUE
+    | FALSE
+    | compareOperator mathExpr mathExpr
+    | NOT logicExpr
+    | ID;
 
-compare_operator: '>'
+compareOperator: '>'
     | '<'
     | '='
     | '>='
-    | '<=';
+    | '<='
+    | '<>';
 
-logic_operator: 'and'
+logicOperator: 'and'
     | 'or'
     | 'xor';
 
-assignment: name '=' expr;
+assignment: ':=' name expr;
 
-expr: (math_expr | logic_expr);
+expr: (mathExpr | logicExpr);
 
 name: ID;
 
 end: EOF;
+
+NOT: 'not';
+
+TRUE: 'true';
+
+FALSE: 'false';
 
 ID: CHAR (CHAR | DIGIT)*;
 

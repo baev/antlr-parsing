@@ -4,38 +4,8 @@ import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.Token;
 
 public interface PrefixExpressionsListener extends ParseTreeListener {
-	void enterAssignment(PrefixExpressionsParser.AssignmentContext ctx);
-	void exitAssignment(PrefixExpressionsParser.AssignmentContext ctx);
-
-	void enterLogic_expr(PrefixExpressionsParser.Logic_exprContext ctx);
-	void exitLogic_expr(PrefixExpressionsParser.Logic_exprContext ctx);
-
-	void enterMath_operator(PrefixExpressionsParser.Math_operatorContext ctx);
-	void exitMath_operator(PrefixExpressionsParser.Math_operatorContext ctx);
-
-	void enterMath_expr(PrefixExpressionsParser.Math_exprContext ctx);
-	void exitMath_expr(PrefixExpressionsParser.Math_exprContext ctx);
-
-	void enterName(PrefixExpressionsParser.NameContext ctx);
-	void exitName(PrefixExpressionsParser.NameContext ctx);
-
-	void enterLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx);
-	void exitLogic_operator(PrefixExpressionsParser.Logic_operatorContext ctx);
-
-	void enterWrite(PrefixExpressionsParser.WriteContext ctx);
-	void exitWrite(PrefixExpressionsParser.WriteContext ctx);
-
-	void enterCommand(PrefixExpressionsParser.CommandContext ctx);
-	void exitCommand(PrefixExpressionsParser.CommandContext ctx);
-
-	void enterCompare_operator(PrefixExpressionsParser.Compare_operatorContext ctx);
-	void exitCompare_operator(PrefixExpressionsParser.Compare_operatorContext ctx);
-
-	void enterBranch(PrefixExpressionsParser.BranchContext ctx);
-	void exitBranch(PrefixExpressionsParser.BranchContext ctx);
-
-	void enterRead(PrefixExpressionsParser.ReadContext ctx);
-	void exitRead(PrefixExpressionsParser.ReadContext ctx);
+	void enterMathExpr(PrefixExpressionsParser.MathExprContext ctx);
+	void exitMathExpr(PrefixExpressionsParser.MathExprContext ctx);
 
 	void enterExpr(PrefixExpressionsParser.ExprContext ctx);
 	void exitExpr(PrefixExpressionsParser.ExprContext ctx);
@@ -43,8 +13,38 @@ public interface PrefixExpressionsListener extends ParseTreeListener {
 	void enterOperand(PrefixExpressionsParser.OperandContext ctx);
 	void exitOperand(PrefixExpressionsParser.OperandContext ctx);
 
+	void enterLogicOperator(PrefixExpressionsParser.LogicOperatorContext ctx);
+	void exitLogicOperator(PrefixExpressionsParser.LogicOperatorContext ctx);
+
+	void enterAssignment(PrefixExpressionsParser.AssignmentContext ctx);
+	void exitAssignment(PrefixExpressionsParser.AssignmentContext ctx);
+
+	void enterLogicExpr(PrefixExpressionsParser.LogicExprContext ctx);
+	void exitLogicExpr(PrefixExpressionsParser.LogicExprContext ctx);
+
+	void enterName(PrefixExpressionsParser.NameContext ctx);
+	void exitName(PrefixExpressionsParser.NameContext ctx);
+
+	void enterCommand(PrefixExpressionsParser.CommandContext ctx);
+	void exitCommand(PrefixExpressionsParser.CommandContext ctx);
+
+	void enterWrite(PrefixExpressionsParser.WriteContext ctx);
+	void exitWrite(PrefixExpressionsParser.WriteContext ctx);
+
+	void enterRead(PrefixExpressionsParser.ReadContext ctx);
+	void exitRead(PrefixExpressionsParser.ReadContext ctx);
+
+	void enterBranch(PrefixExpressionsParser.BranchContext ctx);
+	void exitBranch(PrefixExpressionsParser.BranchContext ctx);
+
+	void enterCompareOperator(PrefixExpressionsParser.CompareOperatorContext ctx);
+	void exitCompareOperator(PrefixExpressionsParser.CompareOperatorContext ctx);
+
 	void enterParse(PrefixExpressionsParser.ParseContext ctx);
 	void exitParse(PrefixExpressionsParser.ParseContext ctx);
+
+	void enterMathOperator(PrefixExpressionsParser.MathOperatorContext ctx);
+	void exitMathOperator(PrefixExpressionsParser.MathOperatorContext ctx);
 
 	void enterEnd(PrefixExpressionsParser.EndContext ctx);
 	void exitEnd(PrefixExpressionsParser.EndContext ctx);
