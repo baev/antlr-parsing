@@ -1,1 +1,1 @@
-print + 2 2 if and or and pa not ma > 1 2 <> ma TRUE print ma (print pa print + 1 2) print + 21 12 := ma 3
+print + 2 2 if AND OR AND pa NOT ma > 1 2 True print ma (print pa print + 1 2) print + 21 12 := ma 3 scan pa

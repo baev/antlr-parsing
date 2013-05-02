@@ -38,9 +38,9 @@ compareOperator: '>'
     | '<='
     | '<>';
 
-logicOperator: 'and'
-    | 'or'
-    | 'xor';
+logicOperator: 'AND'
+    | 'OR'
+    | 'XOR';
 
 assignment: ':=' name expr;
 
@@ -50,17 +50,19 @@ name: ID;
 
 end: EOF;
 
-NOT: 'not';
+NOT: 'NOT';
 
-TRUE: 'true';
+TRUE: 'TRUE' | 'True' | 'true';
 
-FALSE: 'false';
+FALSE: 'FALSE' | 'False' | 'false';
 
 ID: CHAR (CHAR | DIGIT)*;
 
 INT: DIGIT+;
 
 CHAR: [a-zA-Z];
+
+CHAR_LOWER_CASE: [a-z];
 
 DIGIT: '0'..'9';
 

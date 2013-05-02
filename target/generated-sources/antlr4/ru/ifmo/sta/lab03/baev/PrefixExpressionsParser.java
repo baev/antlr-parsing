@@ -18,12 +18,12 @@ public class PrefixExpressionsParser extends Parser {
 		T__18=1, T__17=2, T__16=3, T__15=4, T__14=5, T__13=6, T__12=7, T__11=8, 
 		T__10=9, T__9=10, T__8=11, T__7=12, T__6=13, T__5=14, T__4=15, T__3=16, 
 		T__2=17, T__1=18, T__0=19, NOT=20, TRUE=21, FALSE=22, ID=23, INT=24, CHAR=25, 
-		DIGIT=26, WS=27;
+		CHAR_LOWER_CASE=26, DIGIT=27, WS=28;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'xor'", "')'", "'+'", "'*'", "'-'", "'or'", "'('", "'print'", 
-		"'if'", "'<>'", "'<'", "'='", "'<='", "'>'", "'scan'", "'and'", "':='", 
-		"'/'", "'>='", "'not'", "'true'", "'false'", "ID", "INT", "CHAR", "DIGIT", 
-		"WS"
+		"<INVALID>", "'AND'", "')'", "'+'", "'*'", "'-'", "'('", "'print'", "'if'", 
+		"'<>'", "'<'", "'='", "'<='", "'XOR'", "'>'", "'scan'", "'OR'", "':='", 
+		"'/'", "'>='", "'NOT'", "TRUE", "FALSE", "ID", "INT", "CHAR", "CHAR_LOWER_CASE", 
+		"DIGIT", "WS"
 	};
 	public static final int
 		RULE_parse = 0, RULE_command = 1, RULE_write = 2, RULE_read = 3, RULE_branch = 4, 
@@ -82,8 +82,8 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			setState(34);
 			switch (_input.LA(1)) {
+			case 7:
 			case 8:
-			case 9:
 			case 15:
 			case 17:
 				enterOuterAlt(_localctx, 1);
@@ -146,7 +146,7 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			setState(40);
 			switch (_input.LA(1)) {
-			case 8:
+			case 7:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(36); write();
@@ -164,7 +164,7 @@ public class PrefixExpressionsParser extends Parser {
 				setState(38); assignment();
 				}
 				break;
-			case 9:
+			case 8:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(39); branch();
@@ -209,7 +209,7 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42); match(8);
+			setState(42); match(7);
 			setState(43); expr();
 			}
 		}
@@ -293,7 +293,7 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48); match(9);
+			setState(48); match(8);
 			setState(49); logicExpr();
 			setState(50); operand();
 			setState(51); operand();
@@ -338,8 +338,8 @@ public class PrefixExpressionsParser extends Parser {
 		try {
 			setState(62);
 			switch (_input.LA(1)) {
+			case 7:
 			case 8:
-			case 9:
 			case 15:
 			case 17:
 				enterOuterAlt(_localctx, 1);
@@ -347,10 +347,10 @@ public class PrefixExpressionsParser extends Parser {
 				setState(53); command();
 				}
 				break;
-			case 7:
+			case 6:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(54); match(7);
+				setState(54); match(6);
 				setState(56); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
@@ -363,7 +363,7 @@ public class PrefixExpressionsParser extends Parser {
 					setState(58); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 8) | (1L << 9) | (1L << 15) | (1L << 17))) != 0) );
+				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 7) | (1L << 8) | (1L << 15) | (1L << 17))) != 0) );
 				setState(60); match(2);
 				}
 				break;
@@ -537,7 +537,7 @@ public class PrefixExpressionsParser extends Parser {
 			setState(87);
 			switch (_input.LA(1)) {
 			case 1:
-			case 6:
+			case 13:
 			case 16:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -558,10 +558,10 @@ public class PrefixExpressionsParser extends Parser {
 				setState(79); match(FALSE);
 				}
 				break;
+			case 9:
 			case 10:
 			case 11:
 			case 12:
-			case 13:
 			case 14:
 			case 19:
 				enterOuterAlt(_localctx, 4);
@@ -623,7 +623,7 @@ public class PrefixExpressionsParser extends Parser {
 			{
 			setState(89);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 10) | (1L << 11) | (1L << 12) | (1L << 13) | (1L << 14) | (1L << 19))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 9) | (1L << 10) | (1L << 11) | (1L << 12) | (1L << 14) | (1L << 19))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -664,7 +664,7 @@ public class PrefixExpressionsParser extends Parser {
 			{
 			setState(91);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 1) | (1L << 6) | (1L << 16))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 1) | (1L << 13) | (1L << 16))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -851,31 +851,31 @@ public class PrefixExpressionsParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\35l\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
+		"\2\3\36l\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t"+
 		"\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2"+
 		"\3\2\3\2\3\2\5\2%\n\2\3\3\3\3\3\3\3\3\5\3+\n\3\3\4\3\4\3\4\3\5\3\5\3\5"+
 		"\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\6\7;\n\7\r\7\16\7<\3\7\3\7\5\7A\n\7\3"+
 		"\b\3\b\3\b\3\b\3\b\3\b\5\bI\n\b\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3"+
 		"\n\3\n\3\n\3\n\3\n\3\n\5\nZ\n\n\3\13\3\13\3\f\3\f\3\r\3\r\3\r\3\r\3\16"+
 		"\3\16\5\16f\n\16\3\17\3\17\3\20\3\20\3\20\2\21\2\4\6\b\n\f\16\20\22\24"+
-		"\26\30\32\34\36\2\5\4\5\7\24\24\4\f\20\25\25\5\3\3\b\b\22\22j\2$\3\2\2"+
-		"\2\4*\3\2\2\2\6,\3\2\2\2\b/\3\2\2\2\n\62\3\2\2\2\f@\3\2\2\2\16H\3\2\2"+
-		"\2\20J\3\2\2\2\22Y\3\2\2\2\24[\3\2\2\2\26]\3\2\2\2\30_\3\2\2\2\32e\3\2"+
-		"\2\2\34g\3\2\2\2\36i\3\2\2\2 !\5\4\3\2!\"\5\2\2\2\"%\3\2\2\2#%\5\36\20"+
-		"\2$ \3\2\2\2$#\3\2\2\2%\3\3\2\2\2&+\5\6\4\2\'+\5\b\5\2(+\5\30\r\2)+\5"+
-		"\n\6\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\n\2\2-"+
-		".\5\32\16\2.\7\3\2\2\2/\60\7\21\2\2\60\61\5\34\17\2\61\t\3\2\2\2\62\63"+
-		"\7\13\2\2\63\64\5\22\n\2\64\65\5\f\7\2\65\66\5\f\7\2\66\13\3\2\2\2\67"+
-		"A\5\4\3\28:\7\t\2\29;\5\4\3\2:9\3\2\2\2;<\3\2\2\2<:\3\2\2\2<=\3\2\2\2"+
-		"=>\3\2\2\2>?\7\4\2\2?A\3\2\2\2@\67\3\2\2\2@8\3\2\2\2A\r\3\2\2\2BC\5\20"+
-		"\t\2CD\5\16\b\2DE\5\16\b\2EI\3\2\2\2FI\7\32\2\2GI\7\31\2\2HB\3\2\2\2H"+
-		"F\3\2\2\2HG\3\2\2\2I\17\3\2\2\2JK\t\2\2\2K\21\3\2\2\2LM\5\26\f\2MN\5\22"+
-		"\n\2NO\5\22\n\2OZ\3\2\2\2PZ\7\27\2\2QZ\7\30\2\2RS\5\24\13\2ST\5\16\b\2"+
-		"TU\5\16\b\2UZ\3\2\2\2VW\7\26\2\2WZ\5\22\n\2XZ\7\31\2\2YL\3\2\2\2YP\3\2"+
-		"\2\2YQ\3\2\2\2YR\3\2\2\2YV\3\2\2\2YX\3\2\2\2Z\23\3\2\2\2[\\\t\3\2\2\\"+
-		"\25\3\2\2\2]^\t\4\2\2^\27\3\2\2\2_`\7\23\2\2`a\5\34\17\2ab\5\32\16\2b"+
-		"\31\3\2\2\2cf\5\16\b\2df\5\22\n\2ec\3\2\2\2ed\3\2\2\2f\33\3\2\2\2gh\7"+
-		"\31\2\2h\35\3\2\2\2ij\7\1\2\2j\37\3\2\2\2\t$*<@HYe";
+		"\26\30\32\34\36\2\5\4\5\7\24\24\5\13\16\20\20\25\25\5\3\3\17\17\22\22"+
+		"j\2$\3\2\2\2\4*\3\2\2\2\6,\3\2\2\2\b/\3\2\2\2\n\62\3\2\2\2\f@\3\2\2\2"+
+		"\16H\3\2\2\2\20J\3\2\2\2\22Y\3\2\2\2\24[\3\2\2\2\26]\3\2\2\2\30_\3\2\2"+
+		"\2\32e\3\2\2\2\34g\3\2\2\2\36i\3\2\2\2 !\5\4\3\2!\"\5\2\2\2\"%\3\2\2\2"+
+		"#%\5\36\20\2$ \3\2\2\2$#\3\2\2\2%\3\3\2\2\2&+\5\6\4\2\'+\5\b\5\2(+\5\30"+
+		"\r\2)+\5\n\6\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7"+
+		"\t\2\2-.\5\32\16\2.\7\3\2\2\2/\60\7\21\2\2\60\61\5\34\17\2\61\t\3\2\2"+
+		"\2\62\63\7\n\2\2\63\64\5\22\n\2\64\65\5\f\7\2\65\66\5\f\7\2\66\13\3\2"+
+		"\2\2\67A\5\4\3\28:\7\b\2\29;\5\4\3\2:9\3\2\2\2;<\3\2\2\2<:\3\2\2\2<=\3"+
+		"\2\2\2=>\3\2\2\2>?\7\4\2\2?A\3\2\2\2@\67\3\2\2\2@8\3\2\2\2A\r\3\2\2\2"+
+		"BC\5\20\t\2CD\5\16\b\2DE\5\16\b\2EI\3\2\2\2FI\7\32\2\2GI\7\31\2\2HB\3"+
+		"\2\2\2HF\3\2\2\2HG\3\2\2\2I\17\3\2\2\2JK\t\2\2\2K\21\3\2\2\2LM\5\26\f"+
+		"\2MN\5\22\n\2NO\5\22\n\2OZ\3\2\2\2PZ\7\27\2\2QZ\7\30\2\2RS\5\24\13\2S"+
+		"T\5\16\b\2TU\5\16\b\2UZ\3\2\2\2VW\7\26\2\2WZ\5\22\n\2XZ\7\31\2\2YL\3\2"+
+		"\2\2YP\3\2\2\2YQ\3\2\2\2YR\3\2\2\2YV\3\2\2\2YX\3\2\2\2Z\23\3\2\2\2[\\"+
+		"\t\3\2\2\\\25\3\2\2\2]^\t\4\2\2^\27\3\2\2\2_`\7\23\2\2`a\5\34\17\2ab\5"+
+		"\32\16\2b\31\3\2\2\2cf\5\16\b\2df\5\22\n\2ec\3\2\2\2ed\3\2\2\2f\33\3\2"+
+		"\2\2gh\7\31\2\2h\35\3\2\2\2ij\7\1\2\2j\37\3\2\2\2\t$*<@HYe";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
